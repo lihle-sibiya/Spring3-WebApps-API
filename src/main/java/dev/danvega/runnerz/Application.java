@@ -1,6 +1,7 @@
 package dev.danvega.runnerz;
 
 import dev.danvega.runnerz.user.UserHttpClient;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -16,7 +17,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Bean
+	@Bean //annotation
 	UserHttpClient userHttpClient() {
 	    RestClient restClient = RestClient.create("https://jsonplaceholder.typicode.com/");
 	    HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(RestClientAdapter.create(restClient)).build();
