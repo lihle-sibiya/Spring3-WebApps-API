@@ -33,7 +33,7 @@ class RunController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping //Post request
+    @PostMapping //Create request
     void create(@Valid @RequestBody Run run) {
         runRepository.create(run);
     }
