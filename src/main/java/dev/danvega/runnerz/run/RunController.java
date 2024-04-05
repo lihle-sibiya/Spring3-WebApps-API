@@ -2,6 +2,7 @@ package dev.danvega.runnerz.run;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -32,10 +33,10 @@ class RunController {
         return run.get();
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping //Create request
-    void create(@Valid @RequestBody Run run) {
+    @PostMapping //Create run
+    public ResponseEntity<Run> create(@Valid @RequestBody Run run) {
         runRepository.create(run);
+        return new ResponseEntity<>(run, HttpStatus.CREATED);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

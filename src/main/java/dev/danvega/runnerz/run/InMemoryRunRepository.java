@@ -29,8 +29,8 @@ class InMemoryRunRepository implements RunRepository {
                 .orElseThrow(RunNotFoundException::new));
     }
 
-    public void create(Run run) {
-        Run newRun = new Run(run.id(),
+    public Run create(Run run) {
+        Run newRun = new Run(run
                 run.title(),
                 run.startedOn(),
                 run.completedOn(),
@@ -38,6 +38,7 @@ class InMemoryRunRepository implements RunRepository {
                 run.location());
 
         runs.add(newRun);
+        return newRun;
     }
 
     public void update(Run newRun, Integer id) {
