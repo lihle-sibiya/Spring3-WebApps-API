@@ -19,7 +19,7 @@ class RunController {
         this.runRepository = runRepository;
     }
 
-    @GetMapping
+    @GetMapping //Get runs
     List<Run> findAll() {
         return runRepository.findAll();
     }
