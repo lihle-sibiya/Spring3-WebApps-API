@@ -24,7 +24,7 @@ class RunController {
         return runRepository.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}")//Get run by ID
     Run findById(@PathVariable Integer id) {
         Optional<Run> run = runRepository.findById(id);
         if(run.isEmpty()) {
