@@ -22,7 +22,7 @@ class UserController {
         return client.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") //Find run by ID
     User findById(@PathVariable Integer id) {
         return client.findById(id);
     }
